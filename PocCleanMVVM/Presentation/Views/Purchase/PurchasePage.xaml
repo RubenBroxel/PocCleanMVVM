@@ -1,0 +1,16 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PocCleanMVVM.Presentation.ViewModels"
+             x:Class="PocCleanMVVM.Presentation.Views.PurchasePage">
+    
+    <StackLayout>
+        <ListView ItemsSource="{Binding PurchaseOrders}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Supplier}" Detail="{Binding TotalAmount}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Agregar Compra" Command="{Binding AddPurchaseCommand}" />
+    </StackLayout>
+</ContentPage>
