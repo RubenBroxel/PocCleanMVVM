@@ -26,9 +26,23 @@
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me" 
+                Text="Almacen" 
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CounterBtn2"
+                Text="Compras" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked2"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CounterBtn3"
+                Text="Ventas" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked3"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>

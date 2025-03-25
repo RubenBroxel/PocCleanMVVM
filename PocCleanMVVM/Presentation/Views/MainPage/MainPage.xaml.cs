@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Domain.Entities;
 using PocCleanMVVM.Presentation.ViewModels;
 using PocCleanMVVM.Presentation.Views;
 
@@ -17,6 +18,18 @@ public partial class MainPage : ContentPage
 	private async void OnCounterClicked(object sender, EventArgs e)
 	{
 		var commentPage = _serviceProvider.GetRequiredService<WarehousePage>();
+        await Navigation.PushAsync(commentPage);		
+	}
+
+		private async void OnCounterClicked2(object sender, EventArgs e)
+	{
+		var commentPage = _serviceProvider.GetRequiredService<PurchasePage>();
+        await Navigation.PushAsync(commentPage);		
+	}
+
+	private async void OnCounterClicked3(object sender, EventArgs e)
+	{
+		var commentPage = _serviceProvider.GetRequiredService<SalesPage>();
         await Navigation.PushAsync(commentPage);		
 	}
 }
