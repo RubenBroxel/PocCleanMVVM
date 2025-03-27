@@ -7,18 +7,18 @@ namespace PocCleanMVVM.Presentation.ViewModels
 {
     public class PurchaseViewModel : INotifyPropertyChanged, IDisposable 
     {
-        private string _supplier;
+        private string? _supplier;
         private decimal _totalAmount;
-        private string _message;
+        private string? _message;
 
-        public string Supplier
+        public string? Supplier
         {
             get => _supplier;
             set
             {
                 if (_supplier != value)
                 {
-                    _supplier = value;
+                    _supplier = value ?? string.Empty;
                     OnPropertyChanged(nameof(Supplier));
                 }
             }
@@ -37,14 +37,14 @@ namespace PocCleanMVVM.Presentation.ViewModels
             }
         }
 
-        public string Message
+        public string? Message
         {
             get => _message;
             set
             {
                 if (_message != value)
                 {
-                    _message = value;
+                    _message = value ?? string.Empty;
                     OnPropertyChanged(nameof(Message));
                 }
             }
@@ -81,9 +81,9 @@ namespace PocCleanMVVM.Presentation.ViewModels
             Message = $"Compra registrada:\nProveedor: {purchaseOrder.Supplier}\nMonto Total: {purchaseOrder.TotalAmount:C}";
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string? propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

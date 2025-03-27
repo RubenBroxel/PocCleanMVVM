@@ -3,7 +3,7 @@ using AppCore.Warehouse;
 using Domain.Entities;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-//using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace PocCleanMVVM.Presentation.ViewModels
 {
@@ -18,7 +18,7 @@ namespace PocCleanMVVM.Presentation.ViewModels
         {
             _getItemsUseCase = getItemsUseCase;
             _addItemUseCase = addItemUseCase;
-            //AddItemCommand = new RelayCommand(AddItem);
+            AddItemCommand = new RelayCommand(AddItem);
         }
         
         public async void LoadItems()
