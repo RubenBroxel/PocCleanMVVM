@@ -5,12 +5,20 @@ using Domain.Entities;
 
 namespace PocCleanMVVM.Presentation.ViewModels
 {
+    /// <summary>
+    /// ViewModel para gestionar la lógica de la vista de compras.
+    /// Implementa INotifyPropertyChanged para notificar cambios en las propiedades
+    /// y IDisposable para liberar recursos si es necesario.
+    /// </summary>
     public class PurchaseViewModel : INotifyPropertyChanged, IDisposable 
     {
         private string? _supplier;
         private decimal _totalAmount;
         private string? _message;
 
+        /// <summary>
+        /// Proveedor asociado a la compra.
+        /// </summary>
         public string? Supplier
         {
             get => _supplier;
@@ -24,6 +32,9 @@ namespace PocCleanMVVM.Presentation.ViewModels
             }
         }
 
+        /// <summary>
+        /// Monto total de la compra.
+        /// </summary>
         public decimal TotalAmount
         {
             get => _totalAmount;
@@ -37,6 +48,9 @@ namespace PocCleanMVVM.Presentation.ViewModels
             }
         }
 
+        /// <summary>
+        /// Mensaje para mostrar información o errores relacionados con la compra.
+        /// </summary>
         public string? Message
         {
             get => _message;
@@ -50,13 +64,24 @@ namespace PocCleanMVVM.Presentation.ViewModels
             }
         }
 
+        /// <summary>
+        /// Comando para registrar una compra.
+        /// </summary>
         public ICommand RegisterPurchaseCommand { get; }
 
+        /// <summary>
+        /// Constructor de la clase PurchaseViewModel.
+        /// Inicializa el comando RegisterPurchaseCommand.
+        /// </summary>
         public PurchaseViewModel()
         {
             RegisterPurchaseCommand = new Command(RegisterPurchase);
         }
 
+        /// <summary>
+        /// Lógica para registrar una compra.
+        /// Valida los datos ingresados y genera un mensaje con los detalles de la compra.
+        /// </summary>
         private void RegisterPurchase()
         {
             if (string.IsNullOrEmpty(Supplier))
@@ -81,13 +106,25 @@ namespace PocCleanMVVM.Presentation.ViewModels
             Message = $"Compra registrada:\nProveedor: {purchaseOrder.Supplier}\nMonto Total: {purchaseOrder.TotalAmount:C}";
         }
 
+        /// <summary>
+        /// Evento que se dispara cuando una propiedad cambia.
+        /// Implementa INotifyPropertyChanged.
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Método para notificar cambios en las propiedades.
+        /// </summary>
+        /// <param name="propertyName">Nombre de la propiedad que cambió.</param>
         protected virtual void OnPropertyChanged(string? propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Método para liberar recursos.
+        /// Implementa IDisposable.
+        /// </summary>
         public void Dispose()
         {
             throw new NotImplementedException();
