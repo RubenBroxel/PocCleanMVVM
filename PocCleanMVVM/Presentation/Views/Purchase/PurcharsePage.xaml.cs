@@ -11,4 +11,7 @@ namespace PocCleanMVVM.Presentation.Views
             BindingContext = viewModel;
         }
     }
+
 }
+
+

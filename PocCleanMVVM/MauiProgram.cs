@@ -45,6 +45,8 @@ public static class MauiProgram
             builder.Services.AddSingleton<AddWarehouseItemUseCase>();
             builder.Services.AddSingleton<WarehouseViewModel>();
             builder.Services.AddSingleton<WarehousePage>();
+
+            builder.Services.AddSingleton<GridPage>();
             
 		return builder.Build();
 	}

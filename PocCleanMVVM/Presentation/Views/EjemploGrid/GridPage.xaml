@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PocCleanMVVM.Presentation.Views.GridPage"
+             Title="Formulario con Grid">
+
+    <StackLayout Padding="10">
+        <Label Text="Lista de Elementos" 
+               FontSize="20" 
+               HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" ColumnSpacing="10" RowSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Id}" Grid.Column="0" FontSize="14" />
+                        <Label Text="{Binding Nombre}" Grid.Column="1" FontSize="14" />
+                        <Label Text="{Binding Categoria}" Grid.Column="2" FontSize="14" />
+                        <Label Text="{Binding Precio}" Grid.Column="3" FontSize="14" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

@@ -4,6 +4,17 @@
              x:Class="PocCleanMVVM.Presentation.Views.SalesPage">
     
     <StackLayout>
+        <Label Text="Proveedor" FontSize="18" />
+        <Entry Text="{Binding Supplier}" Placeholder="Ingresa el nombre del proveedor" />
+
+        <Label Text="Monto Total" FontSize="18" Margin="0,20,0,0"/>
+        <Entry Text="{Binding TotalAmount}" Keyboard="Numeric" Placeholder="Ingresa el monto total" />
+
+        <Button Text="Registrar Compra" Command="{Binding RegisterPurchaseCommand}" Margin="0,20,0,0"/>
+
+        <Label Text="{Binding Message}" TextColor="#FF0073FF" Margin="0,20,0,0"/>
+
+
         <ListView ItemsSource="{Binding Products}">
             <ListView.ItemTemplate>
                 <DataTemplate>

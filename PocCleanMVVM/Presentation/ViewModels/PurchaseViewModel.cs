@@ -1,38 +1,96 @@
 // PurchaseViewModel.cs (Presentation Layer)
-using AppCore.Purchase;
-using Domain.Entities;
-using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
-//using CommunityToolkit.Mvvm.Input;
+using Domain.Entities;
+
 namespace PocCleanMVVM.Presentation.ViewModels
 {
-    public class PurchaseViewModel
+    public class PurchaseViewModel : INotifyPropertyChanged, IDisposable 
     {
-        private readonly GetPurchaseOrdersUseCase _getOrdersUseCase;
-        private readonly AddPurchaseOrderUseCase _addOrderUseCase;
-        public ObservableCollection<PurchaseOrder> PurchaseOrders { get; } = new();
-        public ICommand AddPurchaseCommand { get; }
-        
-        public PurchaseViewModel(GetPurchaseOrdersUseCase getOrdersUseCase, AddPurchaseOrderUseCase addOrderUseCase)
+        private string _supplier;
+        private decimal _totalAmount;
+        private string _message;
+
+        public string Supplier
         {
-            _getOrdersUseCase = getOrdersUseCase;
-            _addOrderUseCase = addOrderUseCase;
-            //AddPurchaseCommand = new RelayCommand(AddPurchase);
+            get => _supplier;
+            set
+            {
+                if (_supplier != value)
+                {
+                    _supplier = value;
+                    OnPropertyChanged(nameof(Supplier));
+                }
+            }
         }
-        
-        public async void LoadOrders()
+
+        public decimal TotalAmount
         {
-            var orders = await _getOrdersUseCase.Execute();
-            PurchaseOrders.Clear();
-            foreach (var order in orders)
-                PurchaseOrders.Add(order);
+            get => _totalAmount;
+            set
+            {
+                if (_totalAmount != value)
+                {
+                    _totalAmount = value;
+                    OnPropertyChanged(nameof(TotalAmount));
+                }
+            }
         }
-        
-        private async void AddPurchase()
+
+        public string Message
         {
-            var newOrder = new PurchaseOrder { Supplier = "Nuevo Proveedor", TotalAmount = 100.00m };
-            await _addOrderUseCase.Execute(newOrder);
-            LoadOrders();
+            get => _message;
+            set
+            {
+                if (_message != value)
+                {
+                    _message = value;
+                    OnPropertyChanged(nameof(Message));
+                }
+            }
+        }
+
+        public ICommand RegisterPurchaseCommand { get; }
+
+        public PurchaseViewModel()
+        {
+            RegisterPurchaseCommand = new Command(RegisterPurchase);
+        }
+
+        private void RegisterPurchase()
+        {
+            if (string.IsNullOrEmpty(Supplier))
+            {
+                Message = "Por favor, ingresa un proveedor.";
+                return;
+            }
+
+            if (TotalAmount <= 0)
+            {
+                Message = "Por favor, ingresa un monto total válido.";
+                return;
+            }
+
+            var purchaseOrder = new PurchaseOrder
+            {
+                Id = new Random().Next(1, 1000), // Simulando un ID aleatorio
+                Supplier = Supplier,
+                TotalAmount = TotalAmount
+            };
+
+            Message = $"Compra registrada:\nProveedor: {purchaseOrder.Supplier}\nMonto Total: {purchaseOrder.TotalAmount:C}";
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

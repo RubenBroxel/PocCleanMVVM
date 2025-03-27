@@ -1,16 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:PocCleanMVVM.Presentation.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:PocCleanMVVM.Presentation.Views"
              x:Class="PocCleanMVVM.Presentation.Views.PurchasePage">
-    
-    <StackLayout>
-        <ListView ItemsSource="{Binding PurchaseOrders}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Supplier}" Detail="{Binding TotalAmount}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Text="Agregar Compra" Command="{Binding AddPurchaseCommand}" />
+
+
+    <StackLayout Padding="20">
+        <Label Text="Proveedor" FontSize="18" />
+        <Entry Text="{Binding Supplier}" Placeholder="Ingresa el nombre del proveedor" />
+
+        <Label Text="Monto Total" FontSize="18" Margin="0,20,0,0"/>
+        <Entry Text="{Binding TotalAmount}" Keyboard="Numeric" Placeholder="Ingresa el monto total" />
+
+        <Button Text="Registrar Compra" Command="{Binding RegisterPurchaseCommand}" Margin="0,20,0,0"/>
+
+        <Label Text="{Binding Message}" TextColor="#FF0073FF" Margin="0,20,0,0"/>
     </StackLayout>
 </ContentPage>
