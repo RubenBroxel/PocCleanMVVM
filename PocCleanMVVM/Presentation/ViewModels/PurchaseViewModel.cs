@@ -17,7 +17,7 @@ namespace PocCleanMVVM.Presentation.ViewModels
         private string? _message;
 
         /// <summary>
-        /// Proveedor asociado a la compra.
+        /// Articulo asociado a la compra.
         /// </summary>
         public string? Supplier
         {
@@ -86,7 +86,7 @@ namespace PocCleanMVVM.Presentation.ViewModels
         {
             if (string.IsNullOrEmpty(Supplier))
             {
-                Message = "Por favor, ingresa un proveedor.";
+                Message = "Por favor, ingresa un Articulo.";
                 return;
             }
 
@@ -103,7 +103,7 @@ namespace PocCleanMVVM.Presentation.ViewModels
                 TotalAmount = TotalAmount
             };
 
-            Message = $"Compra registrada:\nProveedor: {purchaseOrder.Supplier}\nMonto Total: {purchaseOrder.TotalAmount:C}";
+            Message = $"Compra registrada:\nArticulo: {purchaseOrder.Supplier}\nMonto Total: {purchaseOrder.TotalAmount:C}";
         }
 
         /// <summary>

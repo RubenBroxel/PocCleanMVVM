@@ -3,14 +3,20 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using AppCore.Sales;
 using Domain.Entities;
+using PocCleanMVVM.Presentation.ViewModels;
 
 namespace PocCleanMVVM.Presentation.ViewModels
 {
+    public class NewBaseType
+    {
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
+
     /// <summary>
     /// ViewModel para gestionar la lógica de la vista de ventas.
     /// Implementa INotifyPropertyChanged para notificar cambios en las propiedades.
     /// </summary>
-    public class SalesViewModel : INotifyPropertyChanged
+    public class SalesViewModel : NewBaseType, INotifyPropertyChanged
     {
         private readonly GetProductsUseCase _getProductsUseCase;
         private readonly ProcessSaleUseCase _processSaleUseCase;
@@ -19,12 +25,6 @@ namespace PocCleanMVVM.Presentation.ViewModels
         /// Colección observable de productos disponibles para la venta.
         /// </summary>
         public ObservableCollection<Product> Products { get; set; } = new();
-
-        /// <summary>
-        /// Evento que se dispara cuando una propiedad cambia.
-        /// Implementa INotifyPropertyChanged.
-        /// </summary>
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// Constructor de la clase SalesViewModel.

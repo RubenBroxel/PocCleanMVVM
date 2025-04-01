@@ -6,7 +6,7 @@
 
 
     <StackLayout Padding="20">
-        <Label Text="Proveedor" FontSize="18" />
+        <Label Text="Articulo" FontSize="18" />
         <Entry Text="{Binding Supplier}" Placeholder="Ingresa el nombre del proveedor" />
 
         <Label Text="Monto Total" FontSize="18" Margin="0,20,0,0"/>
