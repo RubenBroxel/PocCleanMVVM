@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Domain.Entities;
+using AppCore.Purchase;
 
 namespace PocCleanMVVM.Presentation.ViewModels
 {
@@ -15,6 +16,8 @@ namespace PocCleanMVVM.Presentation.ViewModels
         private string? _supplier;
         private decimal _totalAmount;
         private string? _message;
+
+        private readonly AddPurchaseOrderUseCase _addPurchase ;
 
         /// <summary>
         /// Articulo asociado a la compra.
@@ -73,8 +76,9 @@ namespace PocCleanMVVM.Presentation.ViewModels
         /// Constructor de la clase PurchaseViewModel.
         /// Inicializa el comando RegisterPurchaseCommand.
         /// </summary>
-        public PurchaseViewModel()
+        public PurchaseViewModel(AddPurchaseOrderUseCase addPurchase )
         {
+            _addPurchase = addPurchase;
             RegisterPurchaseCommand = new Command(RegisterPurchase);
         }
 
@@ -95,7 +99,14 @@ namespace PocCleanMVVM.Presentation.ViewModels
                 Message = "Por favor, ingresa un monto total válido.";
                 return;
             }
+            ///Agregar la compra a la base de datos
+            _addPurchase.Execute(new PurchaseOrder
+            {
+                Supplier = Supplier,
+                TotalAmount = TotalAmount
+            });
 
+            ///Simular la creación de una orden de compra (GET de la base de datos)
             var purchaseOrder = new PurchaseOrder
             {
                 Id = new Random().Next(1, 1000), // Simulando un ID aleatorio
