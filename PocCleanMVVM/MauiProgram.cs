@@ -3,7 +3,6 @@ using AppCore.Sales;
 using AppCore.Warehouse;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
-using Microsoft.Extensions.Logging;
 using PocCleanMVVM.Presentation.ViewModels;
 using PocCleanMVVM.Presentation.Views;
 
@@ -59,6 +58,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<PurchasePage>();
         builder.Services.AddSingleton<WarehousePage>();
         builder.Services.AddSingleton<GridPage>();
+        builder.Services.AddSingleton<GamePage>();
+
 
         return builder.Build();
     }

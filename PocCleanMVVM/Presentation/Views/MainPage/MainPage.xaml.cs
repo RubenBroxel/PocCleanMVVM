@@ -56,5 +56,16 @@ namespace PocCleanMVVM
             var commentPage = _serviceProvider.GetRequiredService<GridPage>();
             await Navigation.PushAsync(commentPage);
         }
+
+        /// <summary>
+        /// Maneja el evento de clic para navegar a la página de cuadrícula.
+        /// </summary>
+        private async void OnCounterClicked5(object sender, EventArgs e)
+        {
+            var commentPage = _serviceProvider.GetRequiredService<GamePage>();
+            await Navigation.PushAsync(commentPage);
+        }
+
+
     }
 }

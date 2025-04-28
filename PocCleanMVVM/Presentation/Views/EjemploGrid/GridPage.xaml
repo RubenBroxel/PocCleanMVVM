@@ -3,7 +3,7 @@
              x:Class="PocCleanMVVM.Presentation.Views.GridPage"
              Title="Formulario con Grid">
 
-    <StackLayout Padding="10">
+    <StackLayout Padding="20">
         <Label Text="Lista de Elementos" 
                FontSize="20" 
                HorizontalOptions="Center" />

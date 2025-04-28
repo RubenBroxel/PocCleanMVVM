@@ -3,7 +3,7 @@
              xmlns:vm="clr-namespace:PocCleanMVVM.Presentation.ViewModels"
              x:Class="PocCleanMVVM.Presentation.Views.SalesPage">
     
-    <StackLayout>
+    <StackLayout Padding="20">
         <Label Text="Proveedor" FontSize="18" />
         <Entry Text="{Binding Supplier}" Placeholder="Ingresa el nombre del proveedor" />
 
