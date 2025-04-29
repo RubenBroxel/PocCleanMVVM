@@ -23,4 +23,11 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\" />
+      <Folder Include="ComponentModel\" />
+      <Folder Include="ECS\" />
+      <Folder Include="Interfaces\" />
+    </ItemGroup>
+
 </Project>
