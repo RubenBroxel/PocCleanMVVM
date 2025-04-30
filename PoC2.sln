@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins", "Plugins\Plugins.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{55764F41-F9BF-47AC-9950-447B71344A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{FA291253-07B5-4AD0-BEB3-09EDA15C7289}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C7CB57C0-32F6-4C5A-B374-6EA78D34035F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{517F5497-C000-43D1-8F50-6D1A648AF67C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{7B758FA6-D1C2-4871-9B4C-FBF0B2DD4616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3CE1AFDB-1F35-4CBE-9749-5B92A89E43EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,10 +38,6 @@ Global
 		{55764F41-F9BF-47AC-9950-447B71344A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55764F41-F9BF-47AC-9950-447B71344A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55764F41-F9BF-47AC-9950-447B71344A1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA291253-07B5-4AD0-BEB3-09EDA15C7289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA291253-07B5-4AD0-BEB3-09EDA15C7289}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA291253-07B5-4AD0-BEB3-09EDA15C7289}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA291253-07B5-4AD0-BEB3-09EDA15C7289}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7CB57C0-32F6-4C5A-B374-6EA78D34035F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7CB57C0-32F6-4C5A-B374-6EA78D34035F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7CB57C0-32F6-4C5A-B374-6EA78D34035F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,5 +50,9 @@ Global
 		{7B758FA6-D1C2-4871-9B4C-FBF0B2DD4616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B758FA6-D1C2-4871-9B4C-FBF0B2DD4616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B758FA6-D1C2-4871-9B4C-FBF0B2DD4616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE1AFDB-1F35-4CBE-9749-5B92A89E43EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE1AFDB-1F35-4CBE-9749-5B92A89E43EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE1AFDB-1F35-4CBE-9749-5B92A89E43EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE1AFDB-1F35-4CBE-9749-5B92A89E43EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
