@@ -8,53 +8,66 @@ namespace PocCleanMVVM
     /// </summary>
     public partial class MainPage : ContentPage
     {
-        private readonly IServiceProvider _serviceProvider;
-
         /// <summary>
         /// Constructor de la clase MainPage.
         /// Inicializa los componentes de la vista y configura el proveedor de servicios.
         /// </summary>
-        /// <param name="serviceProvider">Proveedor de servicios para resolver dependencias.</param>
-        public MainPage(IServiceProvider serviceProvider)
+        public MainPage()
         {
             InitializeComponent();
-            _serviceProvider = serviceProvider;
+            LoadPage(GetDashboardContent());
         }
 
-        /// <summary>
-        /// Maneja el evento de clic para navegar a la página del almacén.
-        /// </summary>
-        private async void OnCounterClicked(object sender, EventArgs e)
+        private void DashboardClicked(object sender, EventArgs e)
         {
-            var commentPage = _serviceProvider.GetRequiredService<WarehousePage>();
-            await Navigation.PushAsync(commentPage);
+           LoadPage(GetDashboardContent());
         }
 
-        /// <summary>
-        /// Maneja el evento de clic para navegar a la página de compras.
-        /// </summary>
-        private async void OnCounterClicked2(object sender, EventArgs e)
+        private void SettingsClicked(object sender, EventArgs e)
         {
-            var commentPage = _serviceProvider.GetRequiredService<PurchasePage>();
-            await Navigation.PushAsync(commentPage);
+            LoadPage(GetSettingsContent());
         }
 
-        /// <summary>
-        /// Maneja el evento de clic para navegar a la página de ventas.
-        /// </summary>
-        private async void OnCounterClicked3(object sender, EventArgs e)
+        private void LoadPage(View content)
         {
-            var commentPage = _serviceProvider.GetRequiredService<SalesPage>();
-            await Navigation.PushAsync(commentPage);
+            ContentArea.Content = content;
         }
 
-        /// <summary>
-        /// Maneja el evento de clic para navegar a la página de cuadrícula.
-        /// </summary>
-        private async void OnCounterClicked4(object sender, EventArgs e)
+        private View GetDashboardContent()
         {
-            var commentPage = _serviceProvider.GetRequiredService<GridPage>();
-            await Navigation.PushAsync(commentPage);
+            return new ScrollView
+            {
+                Content = new VerticalStackLayout
+                {
+                    Padding = 20,
+                    Spacing = 10,
+                    Children =
+                    {
+                        new Label { Text = "Dashboard", FontSize = 28, FontAttributes = FontAttributes.Bold, TextColor = Colors.Black },
+                        new BoxView { HeightRequest = 1, Color = Colors.LightGray },
+                        new Label { Text = "Bienvenido a tu panel principal.", FontSize = 16, TextColor = Colors.Gray }
+                    }
+                }
+            };
+        }    
+
+        private View GetSettingsContent()
+        {
+            return new ScrollView
+            {
+                Content = new VerticalStackLayout
+                {
+                    Padding = 20,
+                    Spacing = 10,
+                    Children =
+                    {
+                        new Label { Text = "Settings", FontSize = 28, FontAttributes = FontAttributes.Bold, TextColor = Colors.Black },
+                        new BoxView { HeightRequest = 1, Color = Colors.LightGray },
+                        new Label { Text = "Aquí puedes configurar tu aplicación.", FontSize = 16, TextColor = Colors.Gray }
+                    }
+                }
+            };
         }
+
     }
 }

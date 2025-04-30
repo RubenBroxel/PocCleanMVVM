@@ -3,10 +3,18 @@
 public partial class App : Application
 {
 
-	public App(IServiceProvider serviceProvider)
+	public App()
 	{
 		InitializeComponent();
-		var mainPage = serviceProvider.GetRequiredService<MainPage>();
-    	MainPage = new NavigationPage(mainPage);
+		 MainPage = new MainPage();
+	}
+
+	protected override Window CreateWindow(IActivationState activationState)
+	{
+		Window window = base.CreateWindow(activationState);
+		if (window == null)
+    		throw new InvalidOperationException("Window cannot be null.");
+		// Manipulate Window object
+		return window;
 	}
 }
