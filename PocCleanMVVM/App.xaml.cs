@@ -16,5 +16,6 @@ public partial class App : Application
     		throw new InvalidOperationException("Window cannot be null.");
 		// Manipulate Window object
 		return window;
+		
 	}
 }
